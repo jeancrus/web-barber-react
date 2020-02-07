@@ -1,19 +1,24 @@
 import React from 'react';
+import { PersistGate } from 'redux-persist/integration/react';
 import { Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import Routes from './routes';
+import { ToastContainer } from 'react-toastify';
 import history from './services/history';
 import './config/ReactotronConfig';
 import GlobalStyle from './styles/global';
-import store from './store';
+import { store, persistor } from './store';
+import Routes from './routes';
 
 function App() {
     return (
         <Provider store={store}>
-            <Router history={history}>
-                <GlobalStyle />
-                <Routes />
-            </Router>
+            <PersistGate persistor={persistor}>
+                <Router history={history}>
+                    <GlobalStyle />
+                    <Routes />
+                    <ToastContainer autoClose={3000} />
+                </Router>
+            </PersistGate>
         </Provider>
     );
 }

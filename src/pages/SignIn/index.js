@@ -3,7 +3,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
+import { useDispatch, useSelector } from 'react-redux';
 import logo from '~/assets/logo.svg';
+import * as AuthActions from '~/store/modules/auth/actions';
 
 const schema = Yup.object().shape({
     email: Yup.string()
@@ -13,8 +15,10 @@ const schema = Yup.object().shape({
 });
 
 export default function SignIn() {
-    function handleSubmit(data) {
-        console.tron.log(data);
+    const dispatch = useDispatch();
+    const loading = useSelector(state => state.auth.loading);
+    function handleSubmit({ email, password }) {
+        dispatch(AuthActions.signInRequest(email, password));
     }
     return (
         <>
@@ -32,7 +36,9 @@ export default function SignIn() {
                     id=""
                     placeholder="Sua senha"
                 />
-                <button type="submit">Acessar</button>
+                <button type="submit">
+                    {loading ? 'Carregando...' : 'Acessar'}
+                </button>
                 <Link to="/register">Criar conta gratuita</Link>
             </Form>
         </>

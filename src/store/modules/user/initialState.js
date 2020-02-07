@@ -1,5 +1,4 @@
 export default {
     loading: false,
-    token: null,
-    signed: false,
+    profile: null,
 };
