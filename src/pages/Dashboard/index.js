@@ -34,7 +34,6 @@ export default function Dashboard() {
             const response = await api.get('schedule', { params: { date } });
 
             const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-            console.tron.log('response', response.data);
 
             const data = range.map(hour => {
                 const checkDate = setMilliseconds(
@@ -64,8 +63,6 @@ export default function Dashboard() {
     function handleNextDay() {
         setDate(addDays(date, 1));
     }
-
-    console.tron.log('schedule', schedule);
 
     return (
         <Container>
