@@ -13,10 +13,22 @@ export default function Header() {
                 <nav>
                     <img src={logoHeader} alt="" />
                     <Link to="/dashboard">DASHBOARD</Link>
+                    {(profile.admin || profile.receptionist) && (
+                        <Link to="/admin" style={{ marginLeft: 20 }}>
+                            PAINEL ADMIN
+                        </Link>
+                    )}
+                    {(profile.admin || profile.receptionist) && (
+                        <Link to="/schedule/all" style={{ marginLeft: 20 }}>
+                            AGENDAMENTOS
+                        </Link>
+                    )}
                 </nav>
 
                 <aside>
-                    <Notifications />
+                    {!(profile.admin || profile.receptionist) && (
+                        <Notifications />
+                    )}
                     <Profile>
                         <div>
                             <strong>{profile.name}</strong>

@@ -14,9 +14,9 @@ export function* signIn({ payload }) {
             password,
         });
 
-        if (!user.provider) {
+        if (!(user.provider || user.admin || user.receptionist)) {
             yield put(signFailure());
-            toast.error('Usuário não é prestador');
+            toast.error('Usuário não tem permisão de acesso!');
             return;
         }
         api.defaults.headers.Authorization = `Bearer ${token}`;

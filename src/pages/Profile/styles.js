@@ -41,7 +41,8 @@ export const Container = styled.div`
         button {
             margin: 5px 0 0;
             height: 44px;
-            background: #3b9eff;
+            background-color: #045de9;
+            background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
             font-weight: bold;
             color: #fff;
             border: 0;
@@ -49,7 +50,7 @@ export const Container = styled.div`
             font-size: 16px;
             transition: background 0.2s;
             &:hover {
-                background: ${darken(0.03, '#3b9eff')};
+                opacity: 0.8;
             }
         }
     }
@@ -57,7 +58,8 @@ export const Container = styled.div`
         width: 100%;
         margin: 10px 0 0;
         height: 44px;
-        background: #f64c75;
+        background-image: linear-gradient(315deg, #756213 0%, #000000 74%);
+
         font-weight: bold;
         color: #fff;
         border: 0;
@@ -65,7 +67,7 @@ export const Container = styled.div`
         font-size: 16px;
         transition: background 0.2s;
         &:hover {
-            background: ${darken(0.08, '#f64c75')};
+            opacity: 0.8;
         }
     }
 `;

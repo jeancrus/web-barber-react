@@ -22,7 +22,9 @@ export default function SignIn() {
     }
     return (
         <>
-            <img src={logo} alt="barbershop" />
+            <div>
+                <img src={logo} alt="barbershop" />
+            </div>
             <Form onSubmit={handleSubmit} autoComplete="off" schema={schema}>
                 <Input
                     type="email"
@@ -39,7 +41,7 @@ export default function SignIn() {
                 <button type="submit">
                     {loading ? 'Carregando...' : 'Acessar'}
                 </button>
-                <Link to="/register">Criar conta gratuita</Link>
+                {/* <Link to="/register">Criar conta gratuita</Link> */}
             </Form>
         </>
     );
