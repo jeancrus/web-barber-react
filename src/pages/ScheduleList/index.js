@@ -32,6 +32,7 @@ function ScheduleList({
         try {
             setLoading(true);
             const response = await api.get(`receptionist/schedules/${id}`);
+            console.log('getSchedules -> response', response);
 
             setDataTable(
                 response.data.map(item => ({
